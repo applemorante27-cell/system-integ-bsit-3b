@@ -2,7 +2,8 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-   build: {
+   //...
+  build: {
     transpile: ['vuetify'],
   },
   vite: {
@@ -15,4 +16,10 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    public: {
+      //@ts-ignore
+      googleClientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID
+    }
+  }
 })
